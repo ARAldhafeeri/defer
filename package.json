@@ -1,0 +1,37 @@
+{
+  "name": "defer",
+  "version": "1.0.0",
+  "description": "Defer and recover for JavaScript and TypeScript, inspired by Golang. defer lets you schedule cleanup functions to run after a parent function exits, ensuring efficient resource management. recover helps handle errors gracefully, making them ideal for robust error handling and resource cleanup in complex workflows.",
+  "main": "dist/index.js",
+  "types": "dist/types/defer.d.ts",
+  "type": "module",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "jest --forceExit",
+    "test-coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ARAldhafeeri/defer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ARAldhafeeri/defer/issues"
+  },
+  "homepage": "https://github.com/ARAldhafeeri/defer#readme",
+  "devDependencies ": {
+    "jest": "^29.5.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.2.5"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

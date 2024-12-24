@@ -28,7 +28,7 @@ jobs:
         run: npm i
 
       - name: build
-        run: npm build
+        run: npm run build
 
       - name: Run unit tests
         run: npm test

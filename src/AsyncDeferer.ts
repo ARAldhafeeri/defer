@@ -104,7 +104,7 @@ export class AsyncDeferer {
         // If the main function succeeds, still execute deferred tasks
         await this.execute();
         return result;
-      } catch (err) {
+      } catch (err: any) {
         this.currentError = err;
         // Execute deferred tasks, giving them a chance to recover
         await this.execute();
@@ -126,7 +126,7 @@ export class AsyncDeferer {
    * If an error is captured, returns it and clears the stored error,
    * effectively 'recovering' from it.
    */
-  public recover(): Error {
+  public recover(): Error | null {
     const err = this.currentError;
     if (err) {
       this.currentError = null;

@@ -43,7 +43,7 @@ class SyncDeferer {
    * Stores the error (if any) that might be thrown from the wrapped function.
    * If a deferred function calls `recover()`, it can retrieve this error.
    */
-  static currentError: Error = null;
+  static currentError: Error | null = null;
 
   /**
    * Enqueues a function to be executed in LIFO order once
@@ -94,7 +94,7 @@ class SyncDeferer {
         // No error thrown, so just execute defers
         this.execute();
         return result;
-      } catch (err) {
+      } catch (err: any) {
         // An error occurred in the wrapped function
         this.currentError = err;
         // Execute all defers: if a recover() call sets `currentError` to null,
@@ -119,7 +119,7 @@ class SyncDeferer {
    *
    * If there is no stored error, returns null.
    */
-  static recover(): Error {
+  static recover(): Error | null {
     const err = this.currentError;
     if (err) {
       this.currentError = null;

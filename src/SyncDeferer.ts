@@ -2,21 +2,21 @@
 
 import { DeferredFunction, WrappedFunction } from "../types/defer";
 
-class SyncDefererror extends Error {
+class SyncDeferError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "SyncDefererror";
   }
 }
 
-class ExecutionError extends SyncDefererror {
+class ExecutionError extends SyncDeferError {
   constructor(message: string) {
     super(message);
     this.name = "ExecutionError";
   }
 }
 
-class NestedSyncDefererError extends SyncDefererror {
+class NestedSyncDefererError extends SyncDeferError {
   constructor(message: string) {
     super(message);
     this.name = "NestedSyncDefererError";
@@ -26,7 +26,7 @@ class NestedSyncDefererError extends SyncDefererror {
 /**
  * A class that emulates Go's `defer` and `recover` in JavaScript.
  */
-class SyncSyncDeferer {
+class SyncDeferer {
   /**
    * Stack to store deferred functions (Last-In-First-Out).
    */
@@ -129,5 +129,5 @@ class SyncSyncDeferer {
   }
 }
 
-export { SyncDefererror, ExecutionError, NestedSyncDefererError };
-export default SyncSyncDeferer;
+export { SyncDeferer, SyncDeferError, ExecutionError, NestedSyncDefererError };
+export default SyncDeferer;

@@ -42,7 +42,7 @@ This library emulates Go's defer and recover for blocking and non-blocking funct
 
 ```
 import fs from 'fs';
-import { SyncDeferer } from 'defer';
+import { SyncDeferer } from 'defer-node-js';
 
 const readFileSafely = SyncDeferer.wrapper((filePath: string) => {
   // open file
@@ -67,7 +67,7 @@ try {
 
 ```
 import net from 'net';
-import { AsyncDeferer } from 'defer';
+import { AsyncDeferer } from 'defer-node-js';
 
 const defer = new AsyncDeferer();
 
@@ -84,7 +84,7 @@ const handleConnection = defer.wrapper((socket: net.Socket) => {
 3. Error recovery handling example :
 
 ```
-import { SyncDeferer } from 'defer';
+import { SyncDeferer } from 'defer-node-js';
 
 const faultyFunction = SyncDeferer.wrapper(() => {
   // schedule a deferred function that recovers from error

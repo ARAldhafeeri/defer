@@ -40,7 +40,7 @@ This library emulates Go's defer and recover for blocking and non-blocking funct
 
 1. File handling
 
-```
+```node
 import fs from 'fs';
 import { SyncDeferer } from 'defer-node-js';
 
@@ -65,7 +65,7 @@ try {
 
 2. Networking and socket cleanup
 
-```
+```node
 import net from 'net';
 import { AsyncDeferer } from 'defer-node-js';
 
@@ -83,7 +83,7 @@ const handleConnection = defer.wrapper((socket: net.Socket) => {
 
 3. Error recovery handling example :
 
-```
+```node
 import { SyncDeferer } from 'defer-node-js';
 
 const faultyFunction = SyncDeferer.wrapper(() => {
